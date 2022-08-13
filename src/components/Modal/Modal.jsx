@@ -6,7 +6,6 @@ import { ModalBackDrop, ModalContent } from './Modal.styled';
 const modalRoot = document.querySelector('#modal-root');
 
 function Modal({ onClose, children }) {
-  console.log(children);
   const handlerClickBackDrop = event => {
     if (event.currentTarget === event.target) {
       onClose();

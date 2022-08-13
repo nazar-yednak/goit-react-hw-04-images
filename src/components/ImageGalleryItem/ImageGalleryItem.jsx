@@ -1,7 +1,6 @@
 import { GalleryItemImage, ItemImage } from './ImageGalleryItem.styled';
 import PropTypes from 'prop-types';
 function ImageGalleryItem({ imageArray, onOpenModal }) {
-  console.log(imageArray);
   return (
     <>
       {imageArray.map(item => (

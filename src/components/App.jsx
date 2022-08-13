@@ -6,10 +6,7 @@ import fetchImage from 'Api/Api';
 import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
 import LoaderSpinner from './Loader/Loader';
 import Button from './Button/Button';
-// import { ReactComponent as Search } from './icons';
-// import 'react-toastify/dist/ReactToastify.css';
-// import LoaderSpinner from './Loader/Loader ';
-// import axios from 'axios';
+
 function App() {
   const [imageArray, setImageArray] = useState([]);
   const [largeImageURL, setLargeImageURL] = useState('');
@@ -43,15 +40,12 @@ function App() {
   };
 
   const toggleModal = item => {
-    console.log(item);
     setShowModal(!showModal);
     setLargeImageURL(item.largeImageURL);
     setLargeImageTags(item.tags);
-    console.log(item.largeImageURL);
   };
 
   const handelFormSubmit = searchName => {
-    console.log(searchName);
     setSearchName(searchName);
     setPage(1);
     setImageArray([]);

@@ -14,7 +14,6 @@ function Searchbar({ onSubmit }) {
 
   const handleNameChange = event => {
     setSearchName(event.currentTarget.value.toLowerCase());
-    console.log(event.currentTarget.value);
   };
   const handleSubmit = event => {
     event.preventDefault();
