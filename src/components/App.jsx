@@ -18,23 +18,25 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [page, setPage] = useState(1);
   const [searchName, setSearchName] = useState('');
-  const [error, setError] = useState('');
 
   useEffect(() => {
-    if (!searchName) {
-      return;
+    async function API() {
+      if (!searchName) {
+        return;
+      }
+      setLoading(true);
+      try {
+        const imageArray = await fetchImage(searchName, page);
+        setImageArray(prevImageArray => [...prevImageArray, ...imageArray]);
+      } catch {
+        console.log('error');
+      } finally {
+        setLoading(false);
+      }
     }
-    setLoading(true);
-    try {
-      fetchImage(searchName, page).then(newArr =>
-        setImageArray(prevImageArray => [...prevImageArray, ...newArr])
-      );
-    } catch {
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  }, [searchName, page, error]);
+
+    API();
+  }, [page, searchName]);
 
   const closeModal = () => {
     setShowModal(!showModal);
